@@ -65,21 +65,10 @@
                     <div class="columns is-centered">
                         <div class="column has-text-centered">
                             <h1 class="title is-1 publication-title">
-                                Large Language Diffusion Models
+                                LLaDA-V: Large Language Diffusion Models with Visual Instruction Tuning
                             </h1>
 
                             <div class="is-size-5 publication-authors">
-                                <span class="author-block">
-                                    <a
-                                        href="https://scholar.google.com/citations?user=mVaNdrsAAAAJ"
-                                        target="_blank"
-                                        >Shen Nie</a
-                                    ><sup>1</sup>,</span
-                                >
-                                <span class="author-block">
-                                    <a href="" target="_blank">Fengqi Zhu</a
-                                    ><sup>1</sup>,</span
-                                >
                                 <span class="author-block">
                                     <a
                                         href="https://yyyouy.github.io/"
@@ -89,14 +78,17 @@
                                 >
                                 <span class="author-block">
                                     <a
+                                        href="https://scholar.google.com/citations?user=mVaNdrsAAAAJ"
+                                        target="_blank"
+                                        >Shen Nie</a
+                                    ><sup>1</sup>,</span
+                                >
+                                <span class="author-block">
+                                    <a
                                         href="https://scholar.google.com/citations?user=cAz9PToAAAAJ"
                                         target="_blank"
                                         >Xiaolu Zhang</a
                                     ><sup>2</sup>,</span
-                                >
-                                <span class="author-block">
-                                    <a href="" target="_blank">Jingyang Ou</a
-                                    ><sup>1</sup>,</span
                                 >
                                 <span class="author-block">
                                     <a href="" target="_blank">Jun Hu</a
@@ -111,9 +103,9 @@
                                 >
                                 <span class="author-block">
                                     <a
-                                        href="https://scholar.google.com/citations?user=j8K1FqEAAAAJ"
+                                        href="https://scholar.google.com/citations?user=OUXS8doAAAAJ"
                                         target="_blank"
-                                        >Yankai Lin</a
+                                        >Zhiwu Lu</a
                                     ><sup>1</sup>,</span
                                 >
                                 <span class="author-block">
@@ -144,7 +136,7 @@
 
                             <div class="column has-text-centered">
                                 <div class="publication-links">
-                                    <span class="link-block">
+                                    <!-- <span class="link-block">
                                         <a
                                             href="http://arxiv.org/abs/2502.09992"
                                             target="_blank"
@@ -155,11 +147,11 @@
                                             </span>
                                             <span>Paper</span>
                                         </a>
-                                    </span>
+                                    </span> -->
 
                                     <span class="link-block">
                                         <a
-                                            href="https://github.com/ML-GSAI/LLaDA"
+                                            href="https://github.com/ML-GSAI/LLaDA-V"
                                             target="_blank"
                                             class="external-link button is-normal is-rounded is-dark"
                                         >
@@ -170,7 +162,7 @@
                                         </a>
                                     </span>
 
-                                    <span class="link-block">
+                                    <!-- <span class="link-block">
                                         <a
                                             href="https://huggingface.co/GSAI-ML"
                                             target="_blank"
@@ -179,12 +171,12 @@
                                             <span class="icon">🤗</span>
                                             <span>Model</span>
                                         </a>
-                                    </span>
+                                    </span> -->
                                 </div>
                             </div>
 
                             <p style="text-align: center; margin-top: 20px; font-size: 24px;">
-                                <strong>TL;DR:</strong> <span style="color: #1E88E5;">We introduce LLaDA, a diffusion model with an unprecedented 8B scale, trained entirely from scratch, rivaling LLaMA3 8B in performance.
+                                <strong>TL;DR:</strong> <span style="color: #1E88E5;">We introduce LLaDA-V, a competitive diffusion-based vision-language model, outperforming other diffusion MLLMs.
                                 </span>
  
                             </p>
@@ -207,14 +199,14 @@
                 >
                     <div class="item" style="text-align: center">
                         <img
-                            src="static/images/LLaDA_vs_LLaMA.svg"
+                            src="static/images/baseline_comparison.svg"
                             alt="LLaDA_vs_LLaMA"
                             style="width: 75%; max-width: 1000px;"
                         />
                     </div>
                     <div class="item" style="text-align: center">
                         <img
-                            src="static/images/LLaDA_vs_LLaMA_chat.svg"
+                            src="static/images/diffusion_comparison.svg"
                             alt="LLaDA_vs_LLaMA_chat"
                             style="width: 75%; max-width: 1000px;"
                         />
@@ -222,506 +214,5 @@
                 </div>
             </div>
         </section>
-
-        <section
-            class="section"
-            id="Intro"
-            style="text-align: center; font-weight: bold; position: relative; padding: 50px 20px;"
-        >
-            <div
-            style="
-                width: 100%;
-                height: 1px;
-                background-color: rgba(0, 0, 0, 0.1);
-                margin: 0 auto 15px auto;
-                "
-            ></div>
-            <div
-                class="container is-max-desktop content"
-                style="position: relative; font-size: 1.8rem; color: #1E88E5; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); font-style: italic; font-family: 'Times New Roman', serif;"
-            >
-                What is now proved was once only imagined. ——— William Blake
-            </div>
-
-            <div
-                style="
-                    position: absolute;
-                    bottom: -10px;
-                    right: 50px;
-                    font-weight: bold;
-                    font-size: 1rem;
-                    color: #666;
-                    font-style: italic;
-                "
-            >
-            </div>
-        </section>
-
-        <section class="section" id="Introduction">
-            <div class="container is-max-desktop content">
-                <h2 class="title" style="font-family: 'Times New Roman', serif;">
-                    Motivation
-                </h2>
-
-                <p style="font-size: 1.6rem; font-family: 'Times New Roman', Times, serif;">
-                    We contend that the intelligence of LLMs—manifested in <i>scalability</i>, <i>instruction-following</i>, <i>in-context learning</i>,
-                    <i>conversational ability</i>, and <i>compression—stems</i> not from the autoregressive mechanism per se, but rather from
-                    the core principle of generative modeling: approximating the true language distribution through maximum
-                    likelihood estimation.
-                </p>
-                <p style="font-size: 1.6rem; font-family: 'Times New Roman', Times, serif;">
-                    We introduce <b>LLaDA</b> (<b>L</b>arge <b>La</b>nguage <b>D</b>iffusion with m<b>A</b>sking), a simple yet principled
-                    generative paradigm for large language models that demonstrates the aforementioned remarkable capabilities.
-                </p>
-
-                <h2 class="title" style="font-family: 'Times New Roman', serif;">
-                    Method
-                </h2>
-
-                <p style="font-size: 1.6rem; font-family: 'Times New Roman', Times, serif;">
-                    LLaDA is a masked diffusion model [1, 2, 3] that follows standard pretraining and SFT
-                    while sampling via diffusion. During pretraining, it masks all tokens randomly
-                    at ratio \( t ∼ U[0,1] \); in SFT, only response tokens may be masked. The model
-                    simulates diffusion from full masking (\(t = 1\)) to unmasking (\(t = 0\)), predicting
-                    all masks simultaneously at each step with flexible remasking.
-                </p>
-            </div>
-
-            <div class="container is-max-desktop content">
-                <img
-                    src="static/images/method.svg"
-                    alt="method"
-                    style="width: 100%; height: auto; display: block; margin-bottom: 30px;"
-                />
-            </div>
-
-
-            <div class="container is-max-desktop content">
-                <h2 class="title" style="font-family: 'Times New Roman', serif;">
-                    Scalability
-                </h2>
-                <p style="font-size: 1.6rem; font-family: 'Times New Roman', Times, serif;">
-                    LLaDA demonstrates impressive scalability, with its overall
-                    trend being highly competitive with that of autoregressive baseline on the same data.
-                </p>
-
-            </div>
-
-            <div class="container is-max-desktop content">
-                <div class="row" style="display: flex; justify-content: center; gap: 20px;">
-                    <img
-                        src="static/images/scaling_mmlu.svg"
-                        alt="scaling_mmlu"
-                        style="
-                            width: 30%;
-                            height: auto;
-                            margin-bottom: 20px;
-                        "
-                    />
-                    <img
-                        src="static/images/scaling_arc_c.svg"
-                        alt="scaling_arc_c"
-                        style="width: 30%; height: auto; margin-bottom: 20px"
-                    />
-                    <img
-                        src="static/images/scaling_cmmlu.svg"
-                        alt="scaling_cmmlu"
-                        style="width: 30%; height: auto; margin-bottom: 20px"
-                    />
-                </div>
-                <div class="row" style="display: flex; justify-content: center; gap: 20px;">
-                    <img
-                        src="static/images/scaling_piqa.svg"
-                        alt="scaling_piqa"
-                        style="
-                            width: 30%;
-                            height: auto;
-                            margin-bottom: 20px;
-                        "
-                    />
-                    <img
-                        src="static/images/scaling_gsm8k.svg"
-                        alt="scaling_gsm8k"
-                        style="width: 30%; height: auto; margin-bottom: 20px"
-                    />
-                    <img
-                        src="static/images/scaling_humaneval.svg"
-                        alt="scaling_humaneval"
-                        style="width: 30%; height: auto; margin-bottom: 20px"
-                    />
-                </div>
-            </div>
-
-        </section>
-
-
-        <section class="section" id="Sampling Process">
-            <div
-            style="
-                width: 100%;
-                height: 1px;
-                background-color: rgba(0, 0, 0, 0.1);
-                margin: 0 auto 15px auto;
-                "
-            ></div>
-
-            <div class="container is-max-desktop content">
-
-                <h2 class="title" style="font-family: 'Times New Roman', serif;">
-                    A text generation method different from the traditional left-to-right approach
-                </h2>
-
-                <p style="font-size: 1.6rem; font-family: 'Times New Roman', Times, serif;">
-                    Prompt: <i>Explain what artificial intelligence is.</i>
-                </p>
-
-                <img
-                    src="static/images/diff_normal_150ms.gif"
-                    alt="diff_normal_150ms.gif"
-                    style="width: 100%; height: auto; display: block; margin-bottom: 10px; margin-left: auto; margin-right: auto;"
-                />
-
-             </div>
-
-        </section>
-
-
-        <section class="section" id="Case study">
-            <div
-            style="
-                width: 100%;
-                height: 1px;
-                background-color: rgba(0, 0, 0, 0.1);
-                margin: 0 auto 15px auto;
-                "
-            ></div>
-
-            <div class="container is-max-desktop content">
-                <h2 class="title" style="font-family: 'Times New Roman', serif;">
-                    Case Studies
-                </h2>
-
-                <div style="width: 100%; font-family: 'Times New Roman', serif; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-                    <!-- Title Section -->
-                    <div style="background-color: #f4f4f4; padding: 15px; font-weight: bold; text-align: center; border-bottom: 1px solid #ddd; font-size: 24px;">
-                        Math problem
-                    </div>
-
-                        <!-- User and LLaDA-Instruct Sections -->
-                        <div style="display: flex; flex-direction: column; padding: 20px;">
-
-                            <!-- User Section -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">User</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Emma decides to run 4 sprints 5 times a week. She runs 75 meters each sprint. How many total meters does she run a week?
-                                </div>
-                            </div>
-
-                            <!-- LLaDA-Instruct Section -->
-                            <div>
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">LLaDA-Instruct</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Emma runs 4 sprints each time, so she runs a total of 4 x 5 = 20 sprints a week. Each sprint is 75 meters long, so Emma runs a total of 20 x 75 = 1500 meters a week. The final result is 1500.
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-                <div style="width: 100%; font-family: 'Times New Roman', serif; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-                    <!-- Title Section -->
-                    <div style="background-color: #f4f4f4; padding: 15px; font-weight: bold; text-align: center; border-bottom: 1px solid #ddd; font-size: 24px;">
-                        Daily life
-                    </div>
-
-                        <!-- User and LLaDA-Instruct Sections -->
-                        <div style="display: flex; flex-direction: column; padding: 20px;">
-
-                            <!-- User Section -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">User</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Please recommend me three famous movies
-                                </div>
-                            </div>
-
-                            <!-- LLaDA-Instruct Section -->
-                            <div>
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">LLaDA-Instruct</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Certainly! Here are three famous movies that have achieved widespread popularity and critical acclaim: <br>
-                                    1. <b>The Shawshank Redemption</b> (1994) - Inspired by a novella and directed by Frank Darabont, this film tells the story of Andy Dufresne, a man convicted of murdering his wife, dealing with his harsh life in Shawshank Prison and forming an unlikely friendship with a fellow inmate. <br>
-                                    2. <b>The Godfather</b> (1972) - Directed by Francis Ford Coppola, this film is based on Mario Puzo's novel of the same name. It follows the story of the Corleone family, particularly Michael Corleone, who rises to power and takes over the family's criminal empire. <br>
-                                    3. <b>The Empire Strikes Back</b> (1980) - Directed by George Lucas, this film continues the story of a young Skywalker in the Star Wars saga. It follows Luke Skywalker as he helps the Rebel Alliance fight against the Galactic Empire and destroy the powerful weapon, the Death Star. <br>
-                                    All of these films are celebrated for their cinematic achievements, powerful storytelling, and memorable characters.
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-                <div style="width: 100%; font-family: 'Times New Roman', serif; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-                    <!-- Title Section -->
-                    <div style="background-color: #f4f4f4; padding: 15px; font-weight: bold; text-align: center; border-bottom: 1px solid #ddd; font-size: 24px;">
-                        Code generation
-                    </div>
-
-                        <!-- User and LLaDA-Instruct Sections -->
-                        <div style="display: flex; flex-direction: column; padding: 20px;">
-
-                            <!-- User Section -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">User</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    I am writing python code, I have an array, please
-                                    help me sort it from largest to smallest
-                                </div>
-                            </div>
-
-                            <!-- LLaDA-Instruct Section -->
-                            <div>
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">LLaDA-Instruct</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Certainly! You can sort an array from the largest to
-                                    smallest in Python using the ‘sort()’ method or the
-                                    ‘sorted()‘ function. Here’s an example: <br />
-                                    ### Using ‘sort()’ method: <br />my array = [3, 1,
-                                    4, 1, 5, 2] <br />my array.sort(reverse=True)<br />
-                            print(my array)
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-                <div style="width: 100%; font-family: 'Times New Roman', serif; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-                    <!-- Title Section -->
-                    <div style="background-color: #f4f4f4; padding: 15px; font-weight: bold; text-align: center; border-bottom: 1px solid #ddd; font-size: 24px;">
-                        Translation (English &rarr; Chinese)
-                    </div>
-
-                        <!-- User and LLaDA-Instruct Sections -->
-                        <div style="display: flex; flex-direction: column; padding: 20px;">
-
-                            <!-- User Section -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">User</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Please help me translate into Chinese: ‘What is now proved was once only imagined’
-                                </div>
-                            </div>
-
-                            <!-- LLaDA-Instruct Section -->
-                            <div>
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">LLaDA-Instruct</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    现在被证明的曾经只是想象
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-                <div style="width: 100%; font-family: 'Times New Roman', serif; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-                    <!-- Title Section -->
-                    <div style="background-color: #f4f4f4; padding: 15px; font-weight: bold; text-align: center; border-bottom: 1px solid #ddd; font-size: 24px;">
-                        Translation (English &rarr; German)
-                    </div>
-
-                        <!-- User and LLaDA-Instruct Sections -->
-                        <div style="display: flex; flex-direction: column; padding: 20px;">
-
-                            <!-- User Section -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">User</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Please help me translate into German: ‘What is now proved was once only imagined’
-                                </div>
-                            </div>
-
-                            <!-- LLaDA-Instruct Section -->
-                            <div>
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">LLaDA-Instruct</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Wer heute bestätigt ist, war einst nur immaginiert.
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-                <div style="width: 100%; font-family: 'Times New Roman', serif; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-                    <!-- Title Section -->
-                    <div style="background-color: #f4f4f4; padding: 15px; font-weight: bold; text-align: center; border-bottom: 1px solid #ddd; font-size: 24px;">
-                        Multi-turn dialogue case 1
-                    </div>
-
-                        <!-- User and LLaDA-Instruct Sections -->
-                        <div style="display: flex; flex-direction: column; padding: 20px;">
-
-                            <!-- User Section -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">User</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Could you please share with me what the initial two lines of the renowned poem `The Road Not Taken'?
-                                </div>
-                            </div>
-
-                            <!-- LLaDA-Instruct Section -->
-                            <div>
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">LLaDA-Instruct</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Certainly! The initial two lines of the renowned poem ``The Road Not Taken" by Robert Frost are: ``Two roads diverged in a yellow wood,
-                                    And sorry I could not travel both." These lines set the stage for the poem, introducing the idea of a speaker facing a choice between two paths.
-                                </div>
-                            </div>
-
-                            <!-- User Section -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">User</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Please help me translate into Chinese.
-                                </div>
-                            </div>
-
-                            <!-- LLaDA-Instruct Section -->
-                            <div>
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">LLaDA-Instruct</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Sure! The first two lines of ``The Road Not Taken" by Robert Frost can be translated into Chinese as:
-                                    ``两条路分岔在黄色的树林中，遗憾我不能同时走''
-                                </div>
-                            </div>
-
-
-                            <!-- User Section -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">User</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Please translate into German.
-                                </div>
-                            </div>
-
-                            <!-- LLaDA-Instruct Section -->
-                            <div>
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">LLaDA-Instruct</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Sure! The first two lines of ``The Road Not Taken" by Robert Frost can be translated into German as:
-                                    ``Zwei Wege trennten sich im gelben Wald, und leider konnte ich nicht beide tun."
-                                </div>
-                            </div>
-
-                            <!-- User Section -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">User</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Please also write a poem about life choices. I require 5 sentences, and the first word of each sentence starts with C as the first letter.
-                                </div>
-                            </div>
-
-                            <!-- LLaDA-Instruct Section -->
-                            <div>
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">LLaDA-Instruct</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Certainly! Here's a poem about life choices, with each sentence starting with the letter ``C":
-                                    Choices cascade through life's journey, Creating connections with each decision, Careful
-                                    consideration leads to better paths, Courageous choices shape our destiny, Choosing wisely guides us through the years.
-                                </div>
-                            </div>
-
-
-                        </div>
-                </div>
-
-                <div style="width: 100%; font-family: 'Times New Roman', serif; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-                    <!-- Title Section -->
-                    <div style="background-color: #f4f4f4; padding: 15px; font-weight: bold; text-align: center; border-bottom: 1px solid #ddd; font-size: 24px;">
-                        Multi-turn dialogue case 2
-                    </div>
-
-                        <!-- User and LLaDA-Instruct Sections -->
-                        <div style="display: flex; flex-direction: column; padding: 20px;">
-
-                            <!-- User Section -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">User</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Natalia sold clips to 48 of her friends in April, and then she sold half as many clips in May.
-                                    How many clips did Natalia sell altogether in April and May?
-                                </div>
-                            </div>
-
-                            <!-- LLaDA-Instruct Section -->
-                            <div>
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">LLaDA-Instruct</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Natalia sold clips to 48 friends in April. She sold half as many clips in May, so she sold 48/2 = 24 clips in May.
-                                    Altogether, Natalia sold 48 + 24 = 72 clips in April and May. The final result is 72.
-                                </div>
-                            </div>
-
-                            <!-- User Section -->
-                            <div style="margin-bottom: 20px;">
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">User</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Natalia sold three times as many items in June as she did in May. How many clips did Natalia sell altogether in these three months?
-                                </div>
-                            </div>
-
-                            <!-- LLaDA-Instruct Section -->
-                            <div>
-                                <div style="font-weight: bold; color: #333; padding-bottom: 10px; font-size: 22px;">LLaDA-Instruct</div>
-                                <div style="background-color: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; line-height: 1.6; font-size: 22px;">
-                                    Natalia sold clips to 48 friends in April. She sold half as many clips in May, so she sold 48/2 = 24 clips in May.
-                                    Natalia sold three times as many items in June as she did in May, so she sold 24 * 3 = 72 clips in June.
-                                    Altogether, Natalia sold 48 + 24 + 72 = 144 clips in these three months. The final result is 144.
-                                </div>
-                            </div>
-
-
-                        </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <section class="section" id="BibTeX">
-            <div class="container is-max-desktop content">
-                <h2 class="title" style="font-family: 'Times New Roman', serif;">
-                    BibTeX
-                </h2>
-                <pre><code>@misc{nie2025largelanguagediffusionmodels,
-      title={Large Language Diffusion Models}, 
-      author={Shen Nie and Fengqi Zhu and Zebin You and Xiaolu Zhang and Jingyang Ou and Jun Hu and Jun Zhou and Yankai Lin and Ji-Rong Wen and Chongxuan Li},
-      year={2025},
-      eprint={2502.09992},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2502.09992}, 
-}</code></pre>
-            </div>
-        </section>
-
-
-        <section class="section" id="refer">
-            <div class="container is-max-desktop content">
-                <h2 class="title">References</h2>
-                <blockquote>
-                    <p>
-                        [1] Austin, J., Johnson, D. D., Ho, J., Tarlow, D., and
-                        Van Den Berg, R. Structured denoising diffusion models
-                        in discrete state-spaces. Advances in Neural Information
-                        Processing Systems, 34:17981–17993, 2021a.
-                    </p>
-                    <p>
-                        [2] Ou, J., Nie, S., Xue, K., Zhu, F., Sun, J., Li, Z.,
-                        and Li, C. Your absorbing discrete diffusion secretly
-                        models the conditional distributions of clean data.
-                        arXiv preprint arXiv:2406.03736, 2024.
-                    </p>
-                    <p>
-                        [3] Nie S, Zhu F, Du C, et al. Scaling up Masked Diffusion Models on Text[J]. arXiv preprint arXiv:2410.18514, 2024.
-                    </p>
-                </blockquote>
-            </div>
-        </section>
-
     </body>
 </html>
